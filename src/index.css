@@ -1,0 +1,19 @@
+@import url(./vendor/normalize.css);
+@import url(./vendor/fonts.css);
+
+.page {
+  margin: 0;
+}
+
+.page__content {
+  min-height: 100vh;
+  position: relative;
+  font-family: "Oswald";
+  font-weight: 400;
+  color: #0b1014;
+}
+
+.page__section {
+  max-width: 1880px;
+  margin: 0 auto;
+}
