@@ -3,6 +3,7 @@
 
 .page {
   margin: 0;
+  background-color: #666666;
 }
 
 .page__content {
