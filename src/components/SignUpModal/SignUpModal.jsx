@@ -1,21 +1,21 @@
-import "./LogInModal.css";
+import "./SignUpModal.css";
 
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-export default function LogInModal(props) {
+export default function SignUpModal(props) {
   return (
     <ModalWithForm
-      modalName="logIn"
+      modalName="signUp"
       activeModal={props.activeModal}
-      modalTitle="Log In"
-      submitText="Log In"
+      modalTitle="Sign Up"
+      submitText="Sign Up"
       onSubmit={props.onSubmit}
       alternateButton={
         <button
           className="modal__or-button modal__text-button"
           type="button"
           onClick={() => {
-            props.handleOpenModal("signUp");
+            props.handleOpenModal("logIn");
           }}
         >
           or Sign Up

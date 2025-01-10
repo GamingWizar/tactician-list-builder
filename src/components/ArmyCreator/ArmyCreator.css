@@ -1,0 +1,39 @@
+.army-creator__header {
+  background-color: #450920;
+  width: 100%;
+  color: #ffffff;
+}
+
+.army-creator__header-content {
+  padding: 5px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.army-creator__header-section {
+  display: flex;
+  gap: 20px;
+}
+
+.army-creator__title {
+  font-weight: 400;
+  font-size: 24px;
+  margin: 0;
+}
+
+.army-creator__points {
+  margin: 0;
+  font-size: 20px;
+}
+
+.army-creator__text-button {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-family: "Oswald";
+  font-weight: 400;
+  font-size: 20px;
+  padding: 1px 5px;
+  text-decoration: none;
+}

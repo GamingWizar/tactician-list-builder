@@ -7,7 +7,11 @@ import "./App.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Main from "../Main/Main";
+import RosterList from "../RosterList/RosterList";
+import ArmyCreator from "../ArmyCreator/ArmyCreator";
+
 import LogInModal from "../LogInModal/LogInModal";
+import SignUpModal from "../SignUpModal/SignUpModal";
 
 function App() {
   const [currentUser, setCurrentUser] = React.useState({
@@ -23,6 +27,15 @@ function App() {
     evt.preventDefault();
     setIsLoggedIn(true);
     handleCloseModal();
+  };
+
+  const onSignUp = (evt) => {
+    evt.preventDefault();
+    handleCloseModal();
+  };
+
+  const handleLogOut = () => {
+    setIsLoggedIn(false);
   };
 
   const handleOpenModal = (modalName) => {
@@ -64,17 +77,26 @@ function App() {
 
   return (
     <CurrentUserContext.Provider value={{ currentUser }}>
-      <Header handleOpenModal={handleOpenModal} />
+      <Header
+        handleOpenModal={handleOpenModal}
+        isLoggedIn={isLoggedIn}
+        handleLogOut={handleLogOut}
+      />
       <Routes>
         <Route path="/" element={<Main />} />
+        <Route path="/rosters" element={<RosterList />} />
+        <Route path="/rosters/create" element={<ArmyCreator />} />
       </Routes>
       <Footer />
       <LogInModal
-        modalName="test"
         activeModal={activeModal}
-        modalTitle="Log In"
-        submitText="Log In"
         onSubmit={onLogIn}
+        handleOpenModal={handleOpenModal}
+      />
+      <SignUpModal
+        activeModal={activeModal}
+        onSubmit={onSignUp}
+        handleOpenModal={handleOpenModal}
       />
     </CurrentUserContext.Provider>
   );
