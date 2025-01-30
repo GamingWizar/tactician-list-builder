@@ -1,0 +1,17 @@
+.unit-option {
+  background-color: #dddddd;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.unit-option__image {
+  width: 100px;
+  height: 100px;
+}
+
+.unit-option__add {
+  width: 100px;
+}

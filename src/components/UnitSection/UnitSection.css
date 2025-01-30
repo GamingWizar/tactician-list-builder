@@ -1,0 +1,18 @@
+.unit-section {
+  width: 100%;
+  background-color: #dd403a;
+  display: flex;
+  align-items: center;
+}
+
+.unit-section__add {
+  padding: 0;
+  margin-right: 20px;
+  height: 40px;
+  width: 40px;
+}
+
+.unit-section__title {
+  margin: 0;
+  font-size: 24px;
+}

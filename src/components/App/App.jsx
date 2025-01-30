@@ -12,6 +12,7 @@ import ArmyCreator from "../ArmyCreator/ArmyCreator";
 
 import LogInModal from "../LogInModal/LogInModal";
 import SignUpModal from "../SignUpModal/SignUpModal";
+import UnitModal from "../UnitModal/UnitModal";
 
 function App() {
   const [currentUser, setCurrentUser] = React.useState({
@@ -20,7 +21,7 @@ function App() {
     _id: "12345",
   });
 
-  const [activeModal, setActiveModal] = React.useState("");
+  const [activeModal, setActiveModal] = React.useState("unit");
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
 
   const onLogIn = (evt) => {
@@ -98,6 +99,7 @@ function App() {
         onSubmit={onSignUp}
         handleOpenModal={handleOpenModal}
       />
+      <UnitModal activeModal={activeModal} title="Battleline" />
     </CurrentUserContext.Provider>
   );
 }

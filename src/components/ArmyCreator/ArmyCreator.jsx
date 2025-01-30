@@ -1,5 +1,7 @@
 import "./ArmyCreator.css";
 
+import UnitSection from "../UnitSection/UnitSection";
+
 export default function ArmyCreator(props) {
   return (
     <section className="army-creator page__section">
@@ -13,6 +15,10 @@ export default function ArmyCreator(props) {
             </button>
           </div>
         </div>
+      </div>
+      <div className="army-creator__body">
+        <UnitSection title="Characters" type="charecters" />
+        <UnitSection title="Battleline" type="battleline" />
       </div>
     </section>
   );
