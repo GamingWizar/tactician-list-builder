@@ -14,7 +14,14 @@ export default function UnitOption(props) {
       </div>
       <div className="unit-option__section">
         <h4 className="unit-option__points">{props.points + " Points"}</h4>
-        <button className="unit-option__add">Plus</button>
+        <button
+          className="unit-option__add"
+          onClick={() => {
+            props.handleAddUnit(props.unit, props.type, props.points);
+          }}
+        >
+          Add
+        </button>
       </div>
     </div>
   );

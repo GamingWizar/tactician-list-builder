@@ -15,26 +15,35 @@ export default function UnitModal(props) {
             <h3 className="unit-modal__subtitle">Epic Heroes</h3>
             {props.units.epicHero.map((unit) => (
               <UnitOption
+                type={props.title.toLowerCase()}
+                unit={unit}
                 key={unit.name}
                 name={unit.name}
                 points={unit.unitComp[0].points}
+                handleAddUnit={props.handleAddUnit}
               />
             ))}
             <h3 className="unit-modal__subtitle">Generic Characters</h3>
             {props.units.generic.map((unit) => (
               <UnitOption
+                type={props.title.toLowerCase()}
+                unit={unit}
                 key={unit.name}
                 name={unit.name}
                 points={unit.unitComp[0].points}
+                handleAddUnit={props.handleAddUnit}
               />
             ))}
           </>
         ) : (
           props.units.map((unit) => (
             <UnitOption
+              type={props.title.toLowerCase()}
+              unit={unit}
               key={unit.name}
               name={unit.name}
               points={unit.unitComp[0].points}
+              handleAddUnit={props.handleAddUnit}
             />
           ))
         )}

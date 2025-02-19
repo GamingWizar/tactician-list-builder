@@ -23,7 +23,7 @@ function App() {
     _id: "12345",
   });
 
-  const [activeModal, setActiveModal] = React.useState("unit");
+  const [activeModal, setActiveModal] = React.useState("");
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [unitModalTitle, setUnitModalTitle] = React.useState("");
   const [activeUnits, setActiveUnits] = React.useState([
@@ -40,114 +40,7 @@ function App() {
           ],
           points: "60",
         },
-        {
-          models: [
-            {
-              model: "Termagant",
-              count: "20",
-              loadout: ["Fleshborer", "Chitinous Claws and Teeth"],
-            },
-          ],
-          points: "120",
-        },
       ],
-      profile: {
-        statline: {
-          movement: '6"',
-          toughness: "3",
-          save: "5+",
-          wounds: "1",
-          leadership: "8+",
-          oc: "2",
-        },
-        weapons: {
-          ranged: [
-            {
-              name: "Fleshborer",
-              range: '18"',
-              attacks: "1",
-              bs: "4+",
-              strength: "5",
-              ap: "0",
-              damage: "1",
-              abilities: ["Assault"],
-            },
-            {
-              name: "Shardlauncher",
-              range: '18"',
-              attacks: "D3",
-              bs: "4+",
-              strength: "5",
-              ap: "0",
-              damage: "1",
-              abilities: ["Blast", "Heavy"],
-            },
-            {
-              name: "Spike Rifle",
-              range: '24"',
-              attacks: "1",
-              bs: "4+",
-              strength: "4",
-              ap: "-1",
-              damage: "1",
-              abilities: ["Heavy"],
-            },
-            {
-              name: "Strangleweb",
-              range: '18"',
-              attacks: "D6",
-              bs: "N/A",
-              strength: "2",
-              ap: "0",
-              damage: "1",
-              abilities: ["Assault", "Devastating Wounds", "Torrent"],
-            },
-            {
-              name: "Termagant Devourer",
-              range: '18"',
-              attacks: "2",
-              bs: "4+",
-              strength: "4",
-              ap: "0",
-              damage: "1",
-              abilities: [],
-            },
-            {
-              name: "Termagant Spinefists",
-              range: '12"',
-              attacks: "2",
-              bs: "4+",
-              strength: "3",
-              ap: "0",
-              damage: "1",
-              abilities: ["Assault", "Pistol", "Twin-linked"],
-            },
-          ],
-          melee: [
-            {
-              name: "Chitinous claws and teeth",
-              range: "Melee",
-              attacks: "1",
-              ws: "4+",
-              strength: "3",
-              ap: "0",
-              damage: "1",
-              abilities: [],
-            },
-          ],
-        },
-        abilities: {
-          core: [],
-          faction: [{ name: "Synapse" }],
-          datasheet: [
-            {
-              name: "Skulking Horrors",
-              value:
-                'Once per turn, when an enemy unit ends a Normal, Advance, or Fall Back move within 9" of this unit, if this unit is not within Engagment Range of one or more enemy units, it can make a Normal move of up to D6"',
-            },
-          ],
-        },
-      },
     },
   ]);
 
@@ -209,6 +102,28 @@ function App() {
     };
   }, [activeModal]);
 
+  // ArmyCreator Page
+  const [currentPoints, setCurrentPoints] = React.useState(0);
+  const [maxPoints, setMaxPoints] = React.useState(2000);
+  const [currentArmy, setCurrentArmy] = React.useState({
+    characters: [],
+    battleline: [],
+  });
+
+  const handleAddUnit = (unit, unitType, cost) => {
+    setCurrentPoints(currentPoints + Math.round(cost));
+    setCurrentArmy({
+      ...currentArmy,
+      [unitType]: [
+        ...currentArmy[unitType].toSpliced(
+          currentArmy[unitType].length - 1,
+          0,
+          unit
+        ),
+      ],
+    });
+  };
+
   return (
     <CurrentUserContext.Provider value={{ currentUser }}>
       <Header
@@ -221,7 +136,14 @@ function App() {
         <Route path="/rosters" element={<RosterList />} />
         <Route
           path="/rosters/create"
-          element={<ArmyCreator handleOpenUnitModal={handleOpenUnitModal} />}
+          element={
+            <ArmyCreator
+              handleOpenUnitModal={handleOpenUnitModal}
+              currentPoints={currentPoints}
+              maxPoints={maxPoints}
+              currentArmy={currentArmy}
+            />
+          }
         />
       </Routes>
       <Footer />
@@ -239,6 +161,7 @@ function App() {
         activeModal={activeModal}
         title={unitModalTitle}
         units={activeUnits}
+        handleAddUnit={handleAddUnit}
       />
     </CurrentUserContext.Provider>
   );

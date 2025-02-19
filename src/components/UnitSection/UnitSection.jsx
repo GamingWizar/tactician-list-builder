@@ -9,7 +9,7 @@ export default function UnitSection(props) {
           props.handleOpenUnitModal(props.title);
         }}
       >
-        Plus
+        Add
       </button>
       <h4 className="unit-section__title">{props.title}</h4>
     </div>
