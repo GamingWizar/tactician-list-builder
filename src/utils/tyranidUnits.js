@@ -1,4 +1,4 @@
-export default tyranidUnits = {
+export const tyranidUnits = {
   characters: {
     epicHero: [
       {
@@ -67,12 +67,12 @@ export default tyranidUnits = {
                 name: "Malign Presence",
                 value:
                   'If this model is your WARLORD, each time your opponent targets a unit from their army with a Stratagem, if that unit is within 12" of this model, increase the cost of that use of that Stratagem by 1 CP',
-                aura,
+                aura: true,
               },
               {
                 name: "Domination of the Hivemind",
                 value: `While a friendly TYRANIDS unit is within 9" of this model, that unit is within your army's Synapse Range`,
-                aura,
+                aura: true,
               },
             ],
           },
@@ -169,7 +169,7 @@ export default tyranidUnits = {
                 name: "Onslaught",
                 value:
                   'While a friendly TYRANIDS unit is within 6" of this model, ranged weapons equipped by models in that unit have the [ASSULT] and [LETHAL HITS] abilities.',
-                aura,
+                aura: true,
               },
             ],
           },

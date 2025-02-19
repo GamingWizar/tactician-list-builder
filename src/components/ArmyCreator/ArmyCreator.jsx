@@ -17,8 +17,16 @@ export default function ArmyCreator(props) {
         </div>
       </div>
       <div className="army-creator__body">
-        <UnitSection title="Characters" type="charecters" />
-        <UnitSection title="Battleline" type="battleline" />
+        <UnitSection
+          title="Characters"
+          type="charecters"
+          handleOpenUnitModal={props.handleOpenUnitModal}
+        />
+        <UnitSection
+          title="Battleline"
+          type="battleline"
+          handleOpenUnitModal={props.handleOpenUnitModal}
+        />
       </div>
     </section>
   );

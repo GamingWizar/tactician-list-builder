@@ -3,13 +3,32 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   border-radius: 15px;
   overflow: hidden;
+}
+
+.unit-option__section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .unit-option__image {
   width: 100px;
   height: 100px;
+}
+
+.unit-option__name {
+  margin: 0;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.unit-option__points {
+  margin: 0;
+  font-weight: 400;
+  font-size: 20px;
 }
 
 .unit-option__add {
