@@ -1,4 +1,5 @@
 import React from "react";
+import _ from "lodash";
 import { Routes, Route } from "react-router-dom";
 
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
@@ -113,12 +114,13 @@ function App() {
   const [currentID, setCurrentID] = React.useState(0);
 
   const handleAddUnit = (unit, unitType, cost) => {
-    unit.id = currentID;
+    const unitToAdd = _.cloneDeep(unit);
+    unitToAdd.id = currentID;
     setCurrentID(currentID + 1);
     setCurrentPoints(currentPoints + Math.round(cost));
     setCurrentArmy({
       ...currentArmy,
-      [unitType]: [...currentArmy[unitType], unit],
+      [unitType]: [...currentArmy[unitType], unitToAdd],
     });
     handleCloseModal();
   };
