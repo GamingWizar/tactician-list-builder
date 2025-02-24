@@ -110,18 +110,17 @@ function App() {
     battleline: [],
   });
 
+  const [currentID, setCurrentID] = React.useState(0);
+
   const handleAddUnit = (unit, unitType, cost) => {
+    unit.id = currentID;
+    setCurrentID(currentID + 1);
     setCurrentPoints(currentPoints + Math.round(cost));
     setCurrentArmy({
       ...currentArmy,
-      [unitType]: [
-        ...currentArmy[unitType].toSpliced(
-          currentArmy[unitType].length - 1,
-          0,
-          unit
-        ),
-      ],
+      [unitType]: [...currentArmy[unitType], unit],
     });
+    handleCloseModal();
   };
 
   return (

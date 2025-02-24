@@ -1,0 +1,17 @@
+.unit-display {
+  display: flex;
+}
+
+.unit-display__section {
+  display: flex;
+}
+
+.unit-display__title {
+  font-size: 30px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.unit-display__img {
+  width: 200px;
+}

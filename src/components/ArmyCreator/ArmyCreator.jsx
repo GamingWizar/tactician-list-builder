@@ -22,13 +22,15 @@ export default function ArmyCreator(props) {
       <div className="army-creator__body">
         <UnitSection
           title="Characters"
-          type="charecters"
+          type="characters"
           handleOpenUnitModal={props.handleOpenUnitModal}
+          units={props.currentArmy.characters}
         />
         <UnitSection
           title="Battleline"
           type="battleline"
           handleOpenUnitModal={props.handleOpenUnitModal}
+          units={props.currentArmy.battleline}
         />
       </div>
     </section>
